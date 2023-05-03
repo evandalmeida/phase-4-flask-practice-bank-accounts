@@ -48,6 +48,7 @@ You can either use the `seed.py` to create your seeds or you can seed manually w
 
 Build out these routes:
 
+
 ### Customer
 
 #### `GET /customers`
@@ -69,7 +70,6 @@ Returns a list of all customers formatted like so:
 ]
 ```
 
-
 #### `GET /customers/:id`
 
 Returns a customer with the matching id. If there is no customer, returns a message that the customer could not be found along with a 404.
@@ -86,19 +86,26 @@ Format your customer object like so:
                 "id": 1,
                 "balance": 100,
                 "account_type": "checking",
+                "customer_name": "Chett Tiller",
+                "bank_name": "Crown Royale"
             },
             {
                 "id": 2,
                 "balance": 30,
-                "account_type": "savings"
+                "account_type": "savings",
+                "customer_name": "Chett Tiller",
+                "bank_name": "Royal Raccoon Bank"
             }
         ]
     }
 ```
 
+*Hint: You'll need to find a way to include the customer accounts in this route. This may involve a method similar `to_dict()`*
+
 #### `DELETE /customer/:id`
 
 Deletes the customer and all associated accounts from the database. Returns 204 if the customer was successfully deleted or 404 and an appropriate message if that customer could not be found.
+
 
 ### Bank
 
@@ -110,7 +117,7 @@ Returns a list of all banks.
 [
     {
         "id": 1,
-        "name": "Crown Royale"
+        "name": "Royal Raccoon Bank"
     },
     {
         "id": 2,
@@ -131,9 +138,10 @@ Returns a bank with the matching id. If there is no bank, returns a message that
 }
 ```
 
+
 ### Account
 
-#### `POST /account/:id`
+#### `POST /account`
 
 Creates a new account. The account must belong to a customer and a bank. Return the new account details like so:
 
@@ -143,8 +151,8 @@ Creates a new account. The account must belong to a customer and a bank. Return 
     "balance": 10000,
     "account_type": "checking",
     "customer_name": "Charlie Kozey",
-    "bank_name": "Crown Royale"
+    "bank_name": "Royal Raccoon Bank"
 }
 ```
 
-HINT: You might need to create more than one method with the functionality of `to_dict` in order to make this work.
+*HINT: You might need to create more than one method with the functionality of `to_dict` in order to make this work.*
