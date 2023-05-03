@@ -6,6 +6,8 @@ This application is being built to track banks, customers, and the accounts betw
 
 Fork and clone this repo. Use `pipenv install` and `pipenv shell` to begin. Be sure to `cd server`.
 
+There are no tests so be sure to use the `flask shell` and Postman to be certain everything's working correctly!
+
 ## Models
 
 You have three models: 
